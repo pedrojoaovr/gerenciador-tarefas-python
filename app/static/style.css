@@ -26,6 +26,20 @@ li {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
+  cursor: pointer; /* Adiciona um cursor indicativo de link */
+}
+
+li:hover {
+  background-color: #f5f5f5; /* Altera a cor de fundo ao passar o mouse */
+}
+
+li .btn {
+  pointer-events: none; /* Desativa o clique nos botões dentro do li */
+}
+
+li a {
+  text-decoration: none; /* Remove sublinhado */
+  color: inherit; /* Herda a cor do texto do pai (li) */
 }
 
 label {

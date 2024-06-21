@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Tasks</title>
+    <title>Lista de Tarefas</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="mb-4">Lista de Tasks</h1>
-        <a href="{{ url_for('tasks.add_task') }}" class="btn btn-primary mb-3">Adicionar Novas Tasks</a>
+        <h1 class="mb-4">Lista de Tarefas</h1>
+        <a href="{{ url_for('tasks.add_task') }}" class="btn btn-primary mb-3">Adicionar Novas Tarefas</a>
         <ul class="list-group">
             {% for task in tasks %}
-            <li class="list-group-item">
+            <li class="list-group-item" onclick="mostrarDetalhes('{{ task.name }}', '{{ task.description }}', '{{ task.date.strftime('%d-%m-%Y') | escape }}')">
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
                         <strong>{{ task.name }}</strong>: {{ task.description }} ({{ task.date.strftime('%Y-%m-%d') }})
@@ -28,5 +29,40 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Modal para visualização de tarefa -->
+<div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taskModalLabel">Detalhes da Tarefa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="taskDetails">
+            <!-- Os detalhes da tarefa serão carregados aqui -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- JavaScript para exibir detalhes no modal -->
+    <script>
+  function mostrarDetalhes(nome, descricao, data) {
+    var modalTitle = document.getElementById('taskModalLabel');
+    var taskDetails = document.getElementById('taskDetails');
+
+    modalTitle.innerText = 'Detalhes da Tarefa: ' + nome;
+    taskDetails.innerHTML = '<strong>Nome:</strong> ' + nome + '<br>' +
+                            '<strong>Descrição:</strong> ' + descricao + '<br>' +
+                            '<strong>Data:</strong> ' + data;
+
+    $('#taskModal').modal('show');
+  }
+</script>
+
 </body>
 </html>
