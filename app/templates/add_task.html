@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Adicionar Task</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
-<body>
+<body >
     <div class="container mt-5">
         <h1 class="mb-4">Adicionar uma nova Task</h1>
         <form action="{{ url_for('tasks.add_task') }}" method="POST">

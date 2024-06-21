@@ -9,7 +9,12 @@ task_bp = Blueprint('tasks', __name__)
 @task_bp.route('/')
 def index():
     tasks = Task.query.all()
-    return render_template('index.html', tasks=tasks)
+    events = [{
+        'title': task.name,
+        'start': task.date.strftime('%Y-%m-%d'),
+        'description': task.description
+    } for task in tasks]
+    return render_template('task_calendar.html', tasks=events)
 
 
 @task_bp.route('/add_task', methods=['GET', 'POST'])
