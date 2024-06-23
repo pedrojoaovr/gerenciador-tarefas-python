@@ -21,11 +21,11 @@ def index():
 def add_task():
     if request.method == 'POST':
         task_name = request.form['name']
-        task_description = request.form['description']
         task_date = request.form['date']
+        task_description = request.form['description']
         new_task = Task(name=task_name,
-                        description=task_description,
-                        date=datetime.strptime(task_date, '%Y-%m-%d'))
+                        date=datetime.strptime(task_date, '%Y-%m-%d'),
+                        description=task_description)
         db.session.add(new_task)
         db.session.commit()
         return redirect(url_for('tasks.index'))
@@ -37,12 +37,11 @@ def edit_task(id):
     task = Task.query.get_or_404(id)
     if request.method == 'POST':
         task.name = request.form['name']
-        task.description = request.form['description']
         task.date = datetime.strptime(request.form['date'], '%Y-%m-%d')
+        task.description = request.form['description']
         db.session.commit()
         return redirect(url_for('tasks.index'))
     return render_template('edit_task.html', task=task)
-
 
 @task_bp.route('/delete_task/<int:id>')
 def delete_task(id):
