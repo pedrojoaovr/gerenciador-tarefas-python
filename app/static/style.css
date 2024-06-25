@@ -191,3 +191,261 @@
     padding: 2px; /* Ajusta o padding do conteúdo dentro de cada dia do calendário */
     text-align: center; /* Centraliza o conteúdo dentro de cada dia */
 }
+
+/* ------------------------------- MODAL DO BOTÃO CRIAR TAREFA ------------------------------ */
+
+#modalCriarTarefa .modal-dialog {
+    max-width: 450px; /* Largura máxima do modal */
+    padding-top: 50px;
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+}
+
+#modalCriarTarefa .modal-content {
+    border-radius: 20px; /* Borda arredondada */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+#modalCriarTarefa .modal-header {
+    border-bottom: none; /* Remove a borda superior do rodapé */
+    padding: 15px 20px; /* Espaçamento interno */
+    justify-content: space-between; /* Alinha os botões ao redor */
+}
+
+#modalCriarTarefa .modal-body {
+    padding-left: 65px; /* Espaçamento interno */
+    padding-right: 65px; /* Espaçamento interno */
+    padding-bottom: 1px;
+}
+
+#modalCriarTarefa .modal-title {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 500; /* Peso da fonte Bold */
+    font-size:35px;
+    margin-bottom: 20px;
+}
+
+#modalCriarTarefa .modal-footer {
+    border-top: none; /* Remove a borda superior do rodapé */
+    padding: 15px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza os botões */
+    padding-bottom: 40px;
+   
+}
+
+#modalCriarTarefa .modal-footer .btn-divider {
+    margin: 0 5px; /* Margem entre os botões */
+    display:flex;
+    height: 30px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1); /* Cor da barra vertical */
+    vertical-align: middle;
+}
+
+#modalCriarTarefa .btn-primary {
+    background-color: rgba(145, 51, 218, 1); /* Cor de fundo */
+    border-color: rgba(145, 51, 218, 1); /* Cor da borda */
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    border-radius: 30px; /* Borda arredondada */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#modalCriarTarefa .btn-primary:hover,
+#modalCriarTarefa .btn-primary:focus,
+#modalCriarTarefa .btn-primary:active,
+#modalCriarTarefa .btn-primary.active,
+#modalCriarTarefa .btn-primary.focus,
+#modalCriarTarefa .btn-primary.clicked {
+    background-color: rgba(108, 26, 172, 1); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(108, 26, 172, 1); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalCriarTarefa .btn-secondary {
+    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    border-color: rgba(243, 243, 243, 1); /* Cor da borda */
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    color: rgba(145, 51, 218, 1);
+    border-radius: 30px; /* Borda arredondada */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-inline: 20px;
+    margin-right: 80px;
+}
+
+#modalCriarTarefa .btn-secondary:hover,
+#modalCriarTarefa .btn-secondary:focus,
+#modalCriarTarefa .btn-secondary:active,
+#modalCriarTarefa .btn-secondary.active,
+#modalCriarTarefa .btn-secondary.focus,
+#modalCriarTarefa .btn-secondary.clicked {
+    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
+    color: rgba(145, 51, 218, 1);
+    outline: none;
+    box-shadow: none;
+}
+
+/* ------------------------------- MODAL DOS EVENTOS DO CALENDÁRIO ------------------------------ */
+
+#modalVisualizarTarefa .modal-dialog {
+    max-width: 450px; /* Largura máxima do modal */
+    padding-top: 50px;
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+}
+
+#modalVisualizarTarefa .modal-content {
+    border-radius: 20px; /* Borda arredondada */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+#modalVisualizarTarefa .modal-header {
+    border-bottom: none; /* Remove a borda inferior do cabeçalho */
+    padding: 15px 20px; /* Espaçamento interno */
+    display: flex;
+    justify-content: flex-end; /* Alinha os elementos à direita */
+    align-items: center; /* Alinha os itens verticalmente */
+}
+
+#modalVisualizarTarefa .modal-body {
+    padding: 20px 60px 20px 60px; /* Ajuste o padding: topo, direita, baixo, esquerda */
+}
+
+#modalVisualizarTarefa .modal-title {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 500; /* Peso da fonte Bold */
+    font-size: 30px; /* Tamanho da fonte */
+    margin-bottom: 20px; /* Remove a margem inferior */
+}
+
+#modalVisualizarTarefa .modal-data {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 500; /* Peso da fonte Regular */
+    font-size: 16px; /* Tamanho da fonte */
+    margin-bottom: 10px; /* Espaçamento inferior */
+    padding-bottom: 50px;
+}
+
+#modalVisualizarTarefa .modal-descricao {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 500; /* Peso da fonte Bold */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+#modalVisualizarTarefa .description-wrapper {
+    border: 1px solid #ccc; /* Estilo da borda */
+    padding: 10px; /* Espaçamento interno */
+    margin-bottom: 20px; /* Espaçamento inferior */
+    border-radius: 10px;
+}
+
+#modalVisualizarTarefa .modal-footer {
+    padding: 5px 5px; /* Espaçamento interno */
+    margin-right: 0px;
+    text-align: center; /* Centraliza os botões */
+}
+
+/* Botões do modal */
+
+#modalVisualizarTarefa .modal-header .close {
+    margin-top: 0px; /* Espaço acima do botão */
+    margin-left: 10px; /* Ajusta a margem esquerda */
+    margin-right: 0px; /* Ajusta a margem esquerda */
+    border: none; /* Remove a borda padrão */
+    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    font-size: 20px; /* Tamanho do ícone */
+    color: rgba(145, 51, 218, 1); /* Cor do ícone */
+    border-radius: 50%; /* Borda arredondada */
+    width: 40px; /* Tamanho do círculo */
+    height: 40px; /* Tamanho do círculo */
+    display: flex; /* Exibe como flexível */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+#modalVisualizarTarefa .close:hover,
+#modalVisualizarTarefa .close:focus,
+#modalVisualizarTarefa .close:active,
+#modalVisualizarTarefa .close.active,
+#modalVisualizarTarefa .close.focus,
+#modalVisualizarTarefa .close.clicked {
+    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalVisualizarTarefa .btn-secondary {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    border-color: rgba(243, 243, 243, 1); /* Cor da borda */
+    color: rgba(145, 51, 218, 1); /* Cor do texto */
+    border-radius: 50%; /* Borda arredondada */
+    width: 40px; /* Tamanho do círculo */
+    height: 40px; /* Tamanho do círculo */
+}
+
+#modalVisualizarTarefa .btn-secondary:hover,
+#modalVisualizarTarefa .btn-secondary:focus,
+#modalVisualizarTarefa .btn-secondary:active,
+#modalVisualizarTarefa .btn-secondary.active,
+#modalVisualizarTarefa .btn-secondary.focus,
+#modalVisualizarTarefa .btn-secondary.clicked {
+    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalVisualizarTarefa .btn-danger {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    border-color: rgba(243, 243, 243, 1); /* Cor da borda */
+    color: rgba(145, 51, 218, 1);
+    border-radius: 50%; /* Borda arredondada */
+    width: 40px; /* Tamanho do círculo */
+    height: 40px; /* Tamanho do círculo */
+}
+
+#modalVisualizarTarefa .btn-danger:hover,
+#modalVisualizarTarefa .btn-danger:focus,
+#modalVisualizarTarefa .btn-danger:active,
+#modalVisualizarTarefa .btn-danger.active,
+#modalVisualizarTarefa .btn-danger.focus,
+#modalVisualizarTarefa .btn-danger.clicked {
+    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalVisualizarTarefa .btn-success {
+    background-color: rgba(145, 51, 218, 1); /* Cor de fundo */
+    border-color: rgba(145, 51, 218, 1); /* Cor da borda */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 20px; /* Borda arredondada */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#modalVisualizarTarefa .btn-success:hover,
+#modalVisualizarTarefa .btn-success:focus,
+#modalVisualizarTarefa .btn-success:active,
+#modalVisualizarTarefa .btn-success.active,
+#modalVisualizarTarefa .btn-success.focus,
+#modalVisualizarTarefa .btn-success.clicked {
+    background-color: rgba(108, 26, 172, 1); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(108, 26, 172, 1); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
