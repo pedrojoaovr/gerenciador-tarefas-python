@@ -1,4 +1,8 @@
-/* Estilo para o título da página do calendário */
+/* ---------------------------------------> CSS REFERENTE À PÁGINA DO CALENDÁRIO <---------------------------------------- */
+
+/* ------------------------------- TOPO DA PÁGINA ------------------------------ */
+
+/* Título */
 .mb-4 {
     color: rgba(108, 26, 172, 1); 
     font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
@@ -26,7 +30,7 @@
     box-shadow: none;
 }
 
-/*----------------------------------------------------------------------------------*/
+/* ------------------------------- CENTRO DA PÁGINA ------------------------------ */
 
 /* Calendário Geral*/
 #calendar {
@@ -39,9 +43,7 @@
     overflow: hidden; 
 }
 
-/*-------------------------------*/
-
-/* Estilo para o texto do mês e ano do calendário */
+/* Texto do mês e ano do calendário */
 .fc-toolbar h2 {
     font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
     font-weight: 400; /* Peso da fonte Regular */
@@ -51,7 +53,7 @@
     text-transform: capitalize; /* Capitaliza a primeira letra de cada palavra */
 }
 
-/* Estilo para as semanas do calendário  */
+/* Semanas do calendário  */
 .fc-day-header {
     font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
     font-weight: 400; /* Peso da fonte Regular */
@@ -59,7 +61,7 @@
     text-transform: capitalize;
 }
 
-/* Estilo para os números dos dias do calendário */
+/* Números dos dias do calendário */
 #calendar .fc-day-number {
     font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
     font-weight: 400; /* Peso da fonte Regular */
@@ -67,7 +69,7 @@
     font-size: 16px; /* Tamanho da fonte, ajuste conforme necessário */
 }
 
-/* Estilo para o número do dia atual no calendário */
+/* Número do dia atual do calendário */
 #calendar .fc-today .fc-day-number {
     position: relative;
     font-family: 'Montserrat', sans-serif;
@@ -77,11 +79,10 @@
     z-index: 1; /* Coloca o número do dia na frente do círculo */
 }
 
-/* Estilo para o quadrado do dia atual no calendário */
+/* Quadrado do dia atual do calendário */
 #calendar .fc-today {
     background-color: white !important; /* Fundo branco */
     border-color: rgb(214, 213, 213) !important; /* Borda roxa */
-    
 }
 
 #calendar .fc-today .fc-day-number::before {
@@ -98,9 +99,7 @@
     z-index: -1; /* Coloca atrás do número do dia */
 }
 
-/*-------------------------------*/
-
-/* Botão Hoje no cabeçalho do calendário */
+/* Botão "Hoje" no cabeçalho do calendário */
 #calendar .fc-todayButton-button {
     position: relative; /* Posição relativa para controlar os pseudo-elementos */
     margin-right: 15px;
@@ -126,9 +125,7 @@
     box-shadow: none; /* Remove o foco padrão */
 }
 
-/*-------------------------------*/
-
-/* Botões Prev e Next no cabeçalho do calendário */
+/* Botões "Prev" (seta esquerda) e "Next" (seta direita) no cabeçalho do calendário */
 #calendar .fc-prevButton-button, 
 #calendar .fc-nextButton-button {
     position: relative; /* Posição relativa para controlar os pseudo-elementos */
@@ -156,9 +153,7 @@
     box-shadow: none; /* Remove o foco padrão */
 }
 
-/*-------------------------------*/
-
-/* Botão Criar Tarefa no cabeçalho do calendário */
+/* Botão "Criar Tarefa" no cabeçalho do calendário */
 #calendar .fc-createTaskButton-button {
     position: relative; /* Posição relativa para controlar os pseudo-elementos */
     margin-right: 20px;
@@ -183,8 +178,6 @@
     outline: none;
     box-shadow: none; /* Remove o foco padrão */
 }
-
-/*-------------------------------*/
 
 /* Eventos do calendário */
 #calendar .fc-event {

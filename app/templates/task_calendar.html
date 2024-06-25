@@ -61,6 +61,34 @@
         </div>
     </div>
 
+    <!-- Modal para visualizar tarefa -->
+    <div id="modalVisualizarTarefa" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Visualizar Tarefa</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary ml-2" id="btnEditarTarefa">Editar</button>
+                    <button type="button" class="btn btn-danger ml-2" id="btnDeletarTarefa">Deletar</button>
+                </div>
+
+                <!-- <form action="{{ url_for('tasks.add_task') }}" method="POST"> -->
+
+                <div class="modal-body">
+                    <p><strong>Nome:</strong> <span id="tarefaNome"></span></p>  <!-- Os id's estão certos? -->
+                    <p><strong>Data:</strong> <span id="tarefaData"></span></p>  <!-- Os id's estão certos? -->
+                    <p><strong>Descrição:</strong> <span id="tarefaDescricao"></span></p>  <!-- Os id's estão certos? -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnConcluirTarefa">Marcar como Concluída</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
@@ -102,11 +130,12 @@
                     createTaskButton: {
                         text: 'Criar Tarefa',
                         click: function() {
-                            window.location.href = "{{ url_for('tasks.add_task') }}";
-                        }
+                            $('#modalCriarTarefa').modal('show');
+                        }                        
                     }
                 },
                 events: {{ tasks|tojson }},
+              
                 eventRender: function(event, element) {
                     element.qtip({
                         content: event.description,
@@ -119,6 +148,12 @@
                         style: {
                             classes: 'qtip-blue qtip-shadow'
                         }
+                    });
+                    element.click(function() {
+                        $('#tarefaNome').text(event.title);
+                        $('#tarefaData').text(moment(event.start).format('DD/MM/YYYY'));
+                        $('#tarefaDescricao').text(event.description);
+                        $('#modalVisualizarTarefa').modal('show');
                     });
                 }
             });
