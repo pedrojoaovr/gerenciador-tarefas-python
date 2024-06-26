@@ -462,3 +462,17 @@
     box-shadow: none;
 }
 
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    filter: invert(39%) sepia(76%) saturate(2055%) hue-rotate(238deg) brightness(93%) contrast(105%);
+}
+
+.logout-icon i {
+    font-size: 40px;
+    color: rgba(108, 26, 172, 1);
+    cursor: pointer;
+}
+
+

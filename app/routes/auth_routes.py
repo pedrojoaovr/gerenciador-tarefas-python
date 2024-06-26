@@ -1,6 +1,4 @@
-# app/routes/auth_routes.py
-
-from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from app.models.user import User
 from app import db
@@ -41,3 +39,24 @@ def logout():
     logout_user()
     flash('You have been logged out.', 'info')
     return redirect(url_for('auth.login'))
+
+@auth_bp.route('/update_user_info', methods=['POST'])
+@login_required
+def update_user_info():
+    name = request.form['name']
+    username = request.form['username']
+    password = request.form['password']
+
+    existing_user = User.query.filter_by(username=username).first()
+    if existing_user and existing_user.id != current_user.id:
+        return jsonify({'success': False, 'message': 'Username already taken.'})
+
+    current_user.name = name
+    current_user.username = username
+
+    if password:
+        current_user.set_password(password)
+
+    db.session.commit()
+
+    return jsonify({'success': True})

@@ -9,167 +9,282 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <!-- Estilo personalizado -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-   
 </head>
 
 <body>
-    <div class="container mt-5">
-        <h1 class="mb-4">Gerenciador de Tarefas</h1>
-        
-        <div class="mb-4">
-            <!-- Botão para abrir o modal -->
-            <button type="button" class="btn btn-primary btn-purple" data-toggle="modal" data-target="#modalCriarTarefa">Criar Tarefa</button>
-             <!-- Botão de logout -->
-            <a href="{{ url_for('auth.logout') }}" class="btn btn-danger logout-btn">Logout</a>
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Gerenciador de Tarefas</h1>
+        <div class="d-flex align-items-center">
+            <!-- Ícone de perfil -->
+            <img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" id="btnUserInfo" class="profile-icon" alt="Profile Icon" />
+            <!-- Ícone de logout -->
+            <a href="{{ url_for('auth.logout') }}" class="logout-icon ml-3">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </div>
-
-        <div id="calendar"></div>
-        
     </div>
 
-    <!-- Modal para criar tarefa -->
-    <div id="modalCriarTarefa" class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Header -->
-                <div class="modal-header">
+    <div id="calendar"></div>
+</div>
+
+<!-- Modal para criar tarefa -->
+<div id="modalCriarTarefa" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header"></div>
+
+            <form action="{{ url_for('tasks.add_task') }}" method="POST">
+                <!-- Body -->
+                <div class="modal-body">
+                    <h5 class="modal-title">Crie sua tarefa</h5>
+                    <div class="form-group">
+                        <label for="name">Nome da tarefa:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Data da tarefa:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Descrição da tarefa:</label>
+                        <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                    </div>
                 </div>
-
-                <form action="{{ url_for('tasks.add_task') }}" method="POST">
-                    <!-- Body -->
-                    <div class="modal-body">
-                        <h5 class="modal-title">Crie sua tarefa</h5>
-                        <div class="form-group">
-                            <label for="name">Nome da tarefa:</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="date">Data da tarefa:</label>
-                            <input type="date" class="form-control" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Descrição da tarefa:</label>
-                            <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
-                        </div>
-                    </div>
-                    <!-- Footer -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Criar tarefa</button>
-                        <span class="btn-divider"></span>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    </div>
-                </form>
-            </div>
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Criar tarefa</button>
+                    <span class="btn-divider"></span>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
-   <!-- Modal para visualizar tarefa -->
+<!-- Modal para visualizar tarefa -->
 <div id="modalVisualizarTarefa" class="modal fade" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Header -->
             <div class="modal-header">
                 <div class="ml-auto">
-                    <button type="button" class="btn btn-secondary ml-2" id="btnEditarTarefa">E</button>
-                    <button type="button" class="btn btn-danger ml-2" id="btnDeletarTarefa">D</button>
+                    <button type="button" class="btn btn-secondary ml-2" id="btnEditarTarefa"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger ml-2" id="btnDeletarTarefa"><i class="fas fa-trash"></i></button>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
                     </button>
                 </div>
             </div>
             <!-- Body -->
             <div class="modal-body">
-                <h5 class="modal-title"><span id="tarefaNome"></span></h5>
-                <div class="modal_data">
-                    <p><span id="tarefaData"></span></p>  
-                </div>
-                <p class="modal-descricao">Descrição</p>
-                <div class="description-wrapper">
-                    <p><span id="tarefaDescricao"></span></p>
-                </div>
+                <form id="formVisualizarTarefa" method="POST">
+                    <input type="hidden" id="tarefaId" name="id">
+                    <div class="form-group">
+                        <label for="tarefaNome">Nome da tarefa:</label>
+                        <input type="text" class="form-control" id="tarefaNome" name="name" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarefaData">Data da tarefa:</label>
+                        <input type="date" class="form-control" id="tarefaData" name="date" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="tarefaDescricao">Descrição da tarefa:</label>
+                        <textarea class="form-control" id="tarefaDescricao" name="description" rows="4" disabled></textarea>
+                    </div>
+                </form>
             </div>
             <!-- Footer -->
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnConcluirTarefa">Marcar como Concluída</button>
+                <button type="button" class="btn btn-success" id="btnSalvarEdicao" style="display:none;">Salvar</button>
             </div>
         </div>
     </div>
 </div>
 
- 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/pt-br.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Modal para mostrar e editar informações do usuário -->
+<div id="modalUserInfo" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Informações do Usuário</h5>
+                <div class="ml-auto">
+                    <button type="button" class="btn btn-secondary ml-2" id="btnEditUserInfo"><i class="fas fa-edit"></i> Editar</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                </div>
+            </div>
+            <!-- Body -->
+            <div class="modal-body">
+                <form id="formUserInfo" method="POST">
+                    <div class="form-group">
+                        <label for="userName">Nome:</label>
+                        <input type="text" class="form-control" id="userName" name="name" value="{{ current_user.name }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="userUsername">Nome de Usuário:</label>
+                        <input type="text" class="form-control" id="userUsername" name="username" value="{{ current_user.username }}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPassword">Senha:</label>
+                        <input type="password" class="form-control" id="userPassword" name="password" disabled>
+                    </div>
+                </form>
+            </div>
+            <!-- Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="btnSaveUserInfo" style="display:none;">Salvar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- Script do Calendário -->
-    <script>
-        $(document).ready(function() {
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'title',
-                    right: 'todayButton, prevButton, nextButton, createTaskButton'
-                },
-                customButtons: {
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/pt-br.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-                    todayButton:{
-                        text: 'Hoje',
-                        click: function() {
-                            $('#calendar').fullCalendar('today')
-                        }
-                    },
-
-                    prevButton: {
-                        text: '<',
-                        click: function() {
-                            $('#calendar').fullCalendar('prev');
-                        }
-                    },
-
-                    nextButton: {
-                        text: '>',
-                        click: function() {
-                            $('#calendar').fullCalendar('next');
-                        }
-                    },
-
-                    createTaskButton: {
-                        text: 'Criar Tarefa',
-                        click: function() {
-                            $('#modalCriarTarefa').modal('show');
-                        }                        
+<!-- Script do Calendário -->
+<script>
+    $(document).ready(function() {
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'title',
+                right: 'todayButton, prevButton, nextButton, createTaskButton'
+            },
+            customButtons: {
+                todayButton: {
+                    text: 'Hoje',
+                    click: function() {
+                        $('#calendar').fullCalendar('today');
                     }
                 },
-                events: {{ tasks|tojson }},
-              
-                eventRender: function(event, element) {
-                    element.qtip({
-                        content: event.description,
-                        position: {
-                            corner: {
-                                tooltip: 'bottomLeft',
-                                target: 'topRight'
-                            }
-                        },
-                        style: {
-                            classes: 'qtip-blue qtip-shadow'
-                        }
-                    });
-                    element.click(function() {
-                        $('#tarefaNome').text(event.title);
-                        $('#tarefaData').text(moment(event.start).format('DD/MM/YYYY'));
-                        $('#tarefaDescricao').text(event.description);
-                        $('#modalVisualizarTarefa').modal('show');
-                    });
+                prevButton: {
+                    text: '<',
+                    click: function() {
+                        $('#calendar').fullCalendar('prev');
+                    }
+                },
+                nextButton: {
+                    text: '>',
+                    click: function() {
+                        $('#calendar').fullCalendar('next');
+                    }
+                },
+                createTaskButton: {
+                    text: 'Criar Tarefa',
+                    click: function() {
+                        $('#modalCriarTarefa').modal('show');
+                    }
+                }
+            },
+            events: {{ tasks|tojson }},
+            eventRender: function(event, element) {
+                element.click(function() {
+                    $('#tarefaId').val(event.id);
+                    $('#tarefaNome').val(event.title);
+                    $('#tarefaData').val(moment(event.start).format('YYYY-MM-DD'));
+                    $('#tarefaDescricao').val(event.description);
+                    $('#modalVisualizarTarefa').modal('show');
+                });
+            }
+        });
+
+        $('#btnEditarTarefa').click(function() {
+            $('#tarefaNome').prop('disabled', false);
+            $('#tarefaData').prop('disabled', false);
+            $('#tarefaDescricao').prop('disabled', false);
+            $('#btnSalvarEdicao').show();
+        });
+
+        $('#btnSalvarEdicao').click(function() {
+            var id = $('#tarefaId').val();
+            var nome = $('#tarefaNome').val();
+            var data = $('#tarefaData').val();
+            var descricao = $('#tarefaDescricao').val();
+
+            $.ajax({
+                url: '/edit_task/' + id,
+                type: 'POST',
+                data: {
+                    name: nome,
+                    date: data,
+                    description: descricao
+                },
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert('Erro ao salvar a tarefa.');
+                    }
                 }
             });
         });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/qtip2/3.0.3/jquery.qtip.min.css">
+
+        $('#btnDeletarTarefa').click(function() {
+            var id = $('#tarefaId').val();
+
+            $.ajax({
+                url: '/delete_task/' + id,
+                type: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert('Erro ao deletar a tarefa.');
+                    }
+                }
+            });
+        });
+
+        // Mostrar modal de informações do usuário ao clicar no ícone
+        $('#btnUserInfo').click(function() {
+            $('#modalUserInfo').modal('show');
+        });
+
+        // Habilitar campos de edição ao clicar no botão "Editar"
+        $('#btnEditUserInfo').click(function() {
+            $('#userName').prop('disabled', false);
+            $('#userUsername').prop('disabled', false);
+            $('#userPassword').prop('disabled', false);
+            $('#btnSaveUserInfo').show();
+            $(this).hide();
+        });
+
+        $('#btnSaveUserInfo').click(function() {
+            var name = $('#userName').val();
+            var username = $('#userUsername').val();
+            var password = $('#userPassword').val();
+
+            $.ajax({
+                url: '{{ url_for("auth.update_user_info") }}',
+                type: 'POST',
+                data: {
+                    name: name,
+                    username: username,
+                    password: password
+                },
+                success: function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        alert(response.message || 'Erro ao salvar as informações do usuário.');
+                    }
+                }
+            });
+        });
+    });
+</script>
 </body>
 </html>
