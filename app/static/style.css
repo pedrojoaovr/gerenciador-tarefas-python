@@ -30,6 +30,28 @@
     box-shadow: none;
 }
 
+/* Botão Logout */
+.logout-btn {
+    background-color: rgba(145, 51, 218, 1);
+    border-color: rgba(145, 51, 218, 1); 
+    color: white;
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 700; /* Peso da fonte Bold */
+    float: right;
+}
+
+.logout-btn:hover,
+.logout-btn:focus,
+.logout-btn:active,
+.logout-btn.active,
+.logout-btn.focus,
+.logout-btn.clicked {
+    background-color: rgba(108, 26, 172, 1);
+    border-color: rgba(108, 26, 172, 1); 
+    outline: none;
+    box-shadow: none;
+}
+
 /* ------------------------------- CENTRO DA PÁGINA ------------------------------ */
 
 /* Calendário Geral*/
@@ -355,29 +377,19 @@
     margin-left: 10px; /* Ajusta a margem esquerda */
     margin-right: 0px; /* Ajusta a margem esquerda */
     border: none; /* Remove a borda padrão */
-    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    background-color: rgba(145, 51, 218, 1); /* Cor de fundo */
     font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
     font-weight: 600; /* Peso da fonte SemiBold */
     font-size: 20px; /* Tamanho do ícone */
-    color: rgba(145, 51, 218, 1); /* Cor do ícone */
+    color: rgb(255, 255, 255); /* Cor do ícone */
+    cursor: pointer; /* Mostra que é interativo */
     border-radius: 50%; /* Borda arredondada */
     width: 40px; /* Tamanho do círculo */
     height: 40px; /* Tamanho do círculo */
     display: flex; /* Exibe como flexível */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
-}
-
-#modalVisualizarTarefa .close:hover,
-#modalVisualizarTarefa .close:focus,
-#modalVisualizarTarefa .close:active,
-#modalVisualizarTarefa .close.active,
-#modalVisualizarTarefa .close.focus,
-#modalVisualizarTarefa .close.clicked {
-    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
-    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
-    outline: none;
-    box-shadow: none;
+    
 }
 
 #modalVisualizarTarefa .btn-secondary {
@@ -448,16 +460,4 @@
     border-color: rgba(108, 26, 172, 1); /* Cor da borda ao passar o mouse */
     outline: none;
     box-shadow: none;
-}
-
-.logout-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1000;
-    background-color: rgba(145, 51, 218, 1);
-    border-color: rgba(145, 51, 218, 1);
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-        font-weight: 700;
 }

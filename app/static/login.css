@@ -1,211 +1,215 @@
 body{
 
-    background: rgb(176, 4, 211);
-    margin: 0px;
-    font-family: times;
+  background: rgba(145, 51, 218, 1);
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+  
 
 }
-   /*palavras: gerenciador de tarefas*/
+ /*palavras: gerenciador de tarefas*/
 h1{
-  color: white;
-  padding:  30px 0px;
-  font-family: times;
-  text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
+color: white;
+padding:  30px 0px;
+font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+font-weight: 600; /* Peso da fonte */
+text-align: center;
+padding-bottom: 10px;
+padding-top: 10px;
+}
+
+
+.content{
+background-color: #fff;
+border-radius: 24px;
+width: 500px;
+min-height: 500px; 
+padding-top: 20px;   
+padding-bottom: 0px;
+margin: 0px auto;
+position: relative;   
 }
 
 /* palavras:iniciar sessao*/
 h2{
-  color: black;
-  padding:  20px 0px;
-  font-family: times;
-  font-size: 30px;
-  text-align: center;
-  padding-bottom: 20px;
-  padding-top: 5px;
+color: black;
+padding:  20px 0px;
+font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+font-weight: 500; /* Peso da fonte */
+font-size: 30px;
+text-align: center;
+padding-bottom: 20px;
+padding-top: 5px;
 }
 
 /*botao criar conta*/
 a{
-    font-size: 23px;
-    font-family: times;
-    color: white;
-    text-align: left;
-    text-decoration: none;
+  font-size: 23px;
+  font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+  font-weight: 500; /* Peso da fonte */
+  color: white;
+  text-align: left;
+  text-decoration: none;
 }
+
+a.links{
+display: none;
+}
+
 
 /* email senha segunte*/
 *, *:before, *:after { 
-    margin:0;
-    margin-top: 10px;
-    padding:12px;
-    font-family: Arial,sans-serif;
-  }
-   
-
-  a{
-    text-decoration: none;
-  }
-   
-  
-  a.links{
-    display: none;
-  }
-
-
-  .content{
-    background-color: #fff;
-    border-radius: 24px;
-    width: 500px;
-    min-height: 500px; 
-    padding-top: 50px;   
-    margin: 0px auto;
-    position: relative;   
-  }
+  margin:0;
+  margin-top: 10px;
+  padding:12px;
+  font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+  font-weight: 500; /* Peso da fonte */
+}
  
-
-
-  p{
-    margin-bottom:10px;
-  }
-   
-  .content p:first-child{
-    margin: 0px;
-  }
-   
+p{
+  margin-bottom:10px;
+}
  
-::-webkit-input-placeholder  {
-    color: #bebcbc; 
-    font-style: italic;
-  }
-   
-  input:-moz-placeholder,
-  textarea:-moz-placeholder{
-    color: #bebcbc;
-    font-style: italic;
-  }
-
-  input{
-    outline: none;
-  }
-   
-  
-  input:not([type="checkbox"]){
-    width: 70%;
-    margin-top: 4px;
-    padding: 10px;   
-    border: 1px solid #b2b2b2;
-   
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-   
-    -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
-   
-    -webkit-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-  }
-   
-/* Botão seguinte*/
-  input[type="submit"]{
-    width: 50%;
-    cursor: pointer;  
-    background:  rgb(176, 4, 211);
-    color: #fff;
-    font-size: 20px;  
-    border: 20px solid #fff;
-    margin-bottom: 10px;
-    float:right;
-    margin-top: 50px;
-    border-radius: 30px; 
-    text-shadow: 0 1px 1px #000000;
-    transition: all 0.2s linear;
-  }
-   
-  
-  input[type="submit"]:hover{
-    background: rgb(202, 107, 221);
-  }
-
-  /* Botão criar conta*/
-  .link a{
-    font-weight: bold;
-    background: #e0e0db;
-    color: rgb(176, 4, 211);
-    float:left;
-    margin-left: 10px;
-    margin-top: 6%;
-    border: 5px solid white;
-    border-radius: 30px; 
-    transition: all 0.4s  linear;
-  }
-   
-  .link a:hover{
-    color: rgb(202, 107, 221);
-    background: #f7f7f7;
-  }
-
-  
-.content #cadastro,
-.content #login{
-  z-index: 2;
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
- 
-  -webkit-animation-delay: .1s;
-  animation-delay: .1s;
+.content p:first-child{
+  margin: 0px;
 }
  
 
+::-webkit-input-placeholder  {
+  color: #bebcbc; 
+  font-style: italic;
+}
+ 
+input:-moz-placeholder,
+textarea:-moz-placeholder{
+  color: #bebcbc;
+  font-style: italic;
+}
+
+input{
+  outline: none;
+}
+ 
+
+input:not([type="checkbox"]){
+  width: 70%;
+  margin-top: 4px;
+  padding: 10px;   
+  border: 1px solid #b2b2b2;
+ 
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+ 
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+  box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
+ 
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+ 
+/* Botão seguinte*/
+input[type="submit"]{
+  width: 50%;
+  cursor: pointer;  
+  background:  rgba(145, 51, 218, 1);
+  color: #fff;
+  font-size: 20px;  
+  border: 20px solid #fff;
+  margin-bottom: 10px;
+  float:right;
+  margin-top: 45px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-radius: 50px; 
+  transition: all 0.2s linear;
+}
+ 
+
+input[type="submit"]:hover{
+  background: rgba(108, 26, 172, 1);
+}
+
+/* Botão criar conta*/
+.link a{
+  font-weight: 600;
+  background: #e0e0db;
+  color: rgba(145, 51, 218, 1);
+  float:left;
+  padding-right: 23px;
+  padding-left: 23px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-left: 10px;
+  margin-top: 6%;
+  border: 5px solid white;
+  border-radius: 50px; 
+  transition: all 0.4s  linear;
+}
+ 
+.link a:hover{
+  color: rgba(108, 26, 172, 1);
+  background: #d9d8d8;
+}
+
+
+.content #cadastro,
+.content #login{
+z-index: 2;
+-webkit-animation-name: fadeInLeft;
+animation-name: fadeInLeft;
+
+-webkit-animation-delay: .1s;
+animation-delay: .1s;
+}
+
+
 .content #login,
 .content #cadastro{
-  -webkit-animation-name: fadeOutLeft;
-  animation-name: fadeOutLeft;
+-webkit-animation-name: fadeOutLeft;
+animation-name: fadeOutLeft;
 }
 
 
 @-webkit-keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      -webkit-transform: translateX(-20px);
-    }
-    100% {
-      opacity: 1;
-      -webkit-transform: translateX(0);
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
   }
-   
-  @keyframes fadeInLeft {
-    0% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
   }
-   
-  
-  @-webkit-keyframes fadeOutLeft {
-    0% {
-      opacity: 1;
-      -webkit-transform: translateX(0);
-    }
-    100% {
-      opacity: 0;
-      -webkit-transform: translateX(-20px);
-    }
+}
+ 
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
   }
-   
-  @keyframes fadeOutLeft {
-    0% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
+ 
+
+@-webkit-keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+}
+ 
+@keyframes fadeOutLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
