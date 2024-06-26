@@ -23,20 +23,23 @@
             <form method="post" action="{{ url_for('auth.register') }}">
                 <h2>Cadastro</h2>
 
-                <p>
+                <h3>
                     <label for="name">Nome</label>
-                    <input id="name" name="name" required="required" type="text" placeholder="nome"/>
-                </p>
+                </h3>
 
-                <p>
+                <input id="name" name="name" required="required" type="text" placeholder="nome"/>
+
+                <h4>
                     <label for="username">Usuário</label>
-                    <input id="username" name="username" required="required" type="text" placeholder="seu usuário"/>
-                </p>
+                </h4>
 
-                <p>
+                <input id="username" name="username" required="required" type="text" placeholder="seu usuário"/>
+
+                <h5>
                     <label for="password">Senha</label>
-                    <input id="password" name="password" required="required" type="password" placeholder="sua senha"/>
-                </p>
+                </h5>
+
+                <input id="password" name="password" required="required" type="password" placeholder="sua senha"/>
 
                 <p>
                     <input type="submit" value="Cadastrar"/>

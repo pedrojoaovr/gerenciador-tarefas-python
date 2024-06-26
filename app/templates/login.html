@@ -21,15 +21,18 @@
 
             <form method="post" action="{{ url_for('auth.login') }}">
                 <h2>Iniciar sessão</h2>
-                <p>
-                    <label for="username">Usuário</label>
-                    <input id="username" name="username" required="required" type="text" placeholder="seu nome deusuário"/>
-                </p>
 
-                <p>
+                <h3>
+                    <label for="username">Usuário</label>
+                </h3>
+
+                <input id="username" name="username" required="required" type="text" placeholder="seu nome deusuário"/>
+
+                <h4>
                     <label for="password">Senha</label>
-                    <input id="password" name="password" required="required" type="password" placeholder="sua senha" />
-                </p>
+                </h4>
+
+                <input id="password" name="password" required="required" type="password" placeholder="sua senha" />
 
                 <p>
                     <input type="submit" value="Seguinte" />

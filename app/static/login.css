@@ -19,7 +19,7 @@ padding-top: 10px;
 
 
 .content{
-background-color: #fff;
+background-color: #ffffff;
 border-radius: 24px;
 width: 500px;
 min-height: 500px; 
@@ -56,17 +56,23 @@ display: none;
 }
 
 
-/* email senha segunte*/
-*, *:before, *:after { 
+h3{
   margin:0;
-  margin-top: 10px;
+  margin-left: 53px;
   padding:12px;
+  font-size: 18px;
   font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
   font-weight: 500; /* Peso da fonte */
 }
- 
-p{
-  margin-bottom:10px;
+
+h4{
+  margin:0;
+  margin-left: 53px;
+  margin-top: 8px;
+  padding:12px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+  font-weight: 500; /* Peso da fonte */
 }
  
 .content p:first-child{
@@ -89,26 +95,26 @@ input{
   outline: none;
 }
  
-
+/* Caixas de preenchimento de dados*/
 input:not([type="checkbox"]){
   width: 70%;
-  margin-top: 4px;
-  padding: 10px;   
+  margin-left: 65px;
+  padding: 10px;
   border: 1px solid #b2b2b2;
- 
+
   -webkit-border-radius: 3px;
   border-radius: 3px;
- 
+
   -webkit-box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
   box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.6) inset;
- 
+
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
  
 /* Botão seguinte*/
 input[type="submit"]{
-  width: 50%;
+  width: 40%;
   cursor: pointer;  
   background:  rgba(145, 51, 218, 1);
   color: #fff;
@@ -116,6 +122,7 @@ input[type="submit"]{
   border: 20px solid #fff;
   margin-bottom: 10px;
   float:right;
+  margin-right: 10px;
   margin-top: 45px;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -133,16 +140,16 @@ input[type="submit"]:hover{
   font-weight: 600;
   background: #e0e0db;
   color: rgba(145, 51, 218, 1);
-  float:left;
-  padding-right: 23px;
-  padding-left: 23px;
+  float: left;
+  padding-right: 15px;
+  padding-left: 15px;
   padding-top: 12px;
   padding-bottom: 12px;
-  margin-left: 10px;
-  margin-top: 6%;
+  margin-left: 54px; /* Ajuste esta margem conforme necessário */
+  margin-top: 60px;  /* Ajuste esta margem conforme necessário */
   border: 5px solid white;
-  border-radius: 50px; 
-  transition: all 0.4s  linear;
+  border-radius: 50px;
+  transition: all 0.4s linear;
 }
  
 .link a:hover{
