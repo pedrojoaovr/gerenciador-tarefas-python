@@ -15,6 +15,7 @@
     height: 40px;
     cursor: pointer;
     filter: invert(39%) sepia(76%) saturate(2055%) hue-rotate(238deg) brightness(93%) contrast(105%);
+    color: rgba(145, 51, 218, 1);
 }
 
 
@@ -42,7 +43,7 @@
 
 .logout-icon i {
     font-size: 40px;
-    color: rgba(108, 26, 172, 1);
+    color: rgba(145, 51, 218, 1);
     cursor: pointer;
 }
 
@@ -115,6 +116,77 @@
     z-index: -1; /* Coloca atrás do número do dia */
 }
 
+
+/* ANULANDO OS ESTILOS DO FULLCALENDAR */
+
+/* Sobrescrevendo estilos do FullCalendar para os botões */
+#calendar .fc-state-default {
+    background-color: transparent; /* Remover cor de fundo */
+    background-image: none; /* Remover imagem de fundo */
+    border: none; /* Remover borda */
+    color: inherit; /* Herdar a cor de texto padrão */
+    text-shadow: none; /* Remover sombra do texto */
+    box-shadow: none; /* Remover sombra do box */
+}
+
+#calendar .fc-state-default:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+    color: white; /* Cor do texto ao passar o mouse */
+    border: none; /* Manter borda removida ao passar o mouse */
+}
+
+#calendar .fc-state-default:focus {
+    outline: none; /* Remover o contorno padrão ao focar */
+    box-shadow: 0 0 0 2px rgba(0,123,255,.25); /* Adicionar sombra ao focar */
+}
+
+#calendar .fc-state-default:active {
+    background-color: #004085; /* Cor de fundo ao clicar */
+    color: white; /* Cor do texto ao clicar */
+}
+
+/* Anulando estilos de text-decoration do FullCalendar */
+#calendar .fc-event,
+#calendar .fc-event:hover,
+#calendar .fc-state-hover,
+#calendar .fc.fc-bootstrap3 a,
+#calendar .ui-widget .fc-event,
+#calendar a.fc-more {
+    text-decoration: initial; /* Define o comportamento padrão */
+}
+
+/* Anulando estilos do FullCalendar */
+#calendar .fc-state-hover {
+    color: inherit; /* Herda a cor de texto padrão */
+    background-position: initial; /* Redefine a posição de fundo */
+    -webkit-transition: initial; /* Redefine a transição para o padrão */
+    -moz-transition: initial;
+    -o-transition: initial;
+    transition: initial;
+}
+
+#calendar .fc-state-active,
+#calendar .fc-state-disabled,
+#calendar .fc-state-down,
+#calendar .fc-state-hover {
+    color: inherit; /* Herda a cor de texto padrão */
+    background-color: initial; /* Redefine a cor de fundo */
+}
+
+#calendar .fc-state-default {
+    border: initial; /* Redefine a borda para o padrão */
+    background-color: initial; /* Redefine a cor de fundo */
+    background-image: initial; /* Redefine a imagem de fundo */
+    background-repeat: initial; /* Redefine a repetição de fundo */
+    border-color: initial; /* Redefine a cor da borda */
+    color: inherit; /* Herda a cor de texto padrão */
+    text-shadow: initial; /* Redefine a sombra do texto */
+    box-shadow: initial; /* Redefine a sombra do box */
+}
+
+
+/* BOTÕES DO CALENDÁRIO */
+
 /* Botão "Hoje" no cabeçalho do calendário */
 #calendar .fc-todayButton-button {
     position: relative; /* Posição relativa para controlar os pseudo-elementos */
@@ -162,12 +234,14 @@
 
 #calendar .fc-prevButton-button:hover, .fc-nextButton-button:hover {
     background-color: rgba(108, 26, 172, 1) !important;
+    border-color: rgba(108, 26, 172, 1);
 }
 
 #calendar .fc-prevButton-button:focus, .fc-nextButton-button:focus {
     outline: none;
     box-shadow: none; /* Remove o foco padrão */
 }
+
 
 /* Botão "Criar Tarefa" no cabeçalho do calendário */
 #calendar .fc-createTaskButton-button {
@@ -200,6 +274,11 @@
     margin-bottom: 2px; /* Define a margem inferior dos eventos do calendário */
     background-color: rgb(166, 100, 216);
     border: transparent;
+    cursor: pointer;
+}
+
+#calendar .fc-event:hover {
+    background-color: rgba(145, 51, 218);
 }
 
 /* Eventos do calendário: Conteúdo interno */
