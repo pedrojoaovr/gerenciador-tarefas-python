@@ -9,26 +9,14 @@
     font-weight: 500; /* Peso da fonte Medium */
 }
 
-/* Botão Criar Tarefa */
-.btn-purple {
-    background-color: rgba(145, 51, 218, 1);
-    border-color: rgba(145, 51, 218, 1); 
-    color: white;
-    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
-    font-weight: 700; /* Peso da fonte Bold */
+/* Botão Perfil */
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    filter: invert(39%) sepia(76%) saturate(2055%) hue-rotate(238deg) brightness(93%) contrast(105%);
 }
 
-.btn-purple:hover,
-.btn-purple:focus,
-.btn-purple:active,
-.btn-purple.active,
-.btn-purple.focus,
-.btn-purple.clicked {
-    background-color: rgba(108, 26, 172, 1);
-    border-color: rgba(108, 26, 172, 1); 
-    outline: none;
-    box-shadow: none;
-}
 
 /* Botão Logout */
 .logout-btn {
@@ -50,6 +38,12 @@
     border-color: rgba(108, 26, 172, 1); 
     outline: none;
     box-shadow: none;
+}
+
+.logout-icon i {
+    font-size: 40px;
+    color: rgba(108, 26, 172, 1);
+    cursor: pointer;
 }
 
 /* ------------------------------- CENTRO DA PÁGINA ------------------------------ */
@@ -462,17 +456,144 @@
     box-shadow: none;
 }
 
-.profile-icon {
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    filter: invert(39%) sepia(76%) saturate(2055%) hue-rotate(238deg) brightness(93%) contrast(105%);
+
+/* ------------------------------- MODAL DO BOTÃO INFORMAÇÕES DO USUÁRIO ------------------------------ */
+
+#modalUserInfo .modal-dialog {
+    max-width: 450px; /* Largura máxima do modal */
+    padding-top: 50px;
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
 }
 
-.logout-icon i {
-    font-size: 40px;
-    color: rgba(108, 26, 172, 1);
-    cursor: pointer;
+#modalUserInfo .modal-content {
+    border-radius: 20px; /* Borda arredondada */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+#modalUserInfo .modal-header {
+    border-bottom: none; /* Remove a borda inferior do cabeçalho */
+    padding: 15px 20px; /* Espaçamento interno */
+    justify-content: space-between; /* Alinha os elementos do cabeçalho */
+}
+
+#modalUserInfo .modal-title {
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 500; /* Peso da fonte Bold */
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+}
+
+#modalUserInfo .modal-body {
+    padding-left: 65px; /* Espaçamento interno à esquerda */
+    padding-right: 65px; /* Espaçamento interno à direita */
+    padding-bottom: 1px; /* Espaçamento interno inferior */
+}
+
+#modalUserInfo .modal-footer {
+    border-top: none; /* Remove a borda superior do rodapé */
+    padding: 15px 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza os botões */
+   
+}
+
+#modalUserInfo .btn-primary {
+    background-color: rgba(243, 243, 243, 1); /* Cor de fundo */
+    border-color: rgba(243, 243, 243, 1); /* Cor da borda */
+    color: rgba(145, 51, 218, 1); /* Cor do texto */
+    border-radius: 50%; /* Borda arredondada */
+    width: 40px; /* Tamanho do círculo */
+    height: 40px; /* Tamanho do círculo */
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+   
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
+#modalUserInfo .btn-primary:hover,
+#modalUserInfo .btn-primary:focus,
+#modalUserInfo .btn-primary:active,
+#modalUserInfo .btn-primary.active,
+#modalUserInfo .btn-primary.focus,
+#modalUserInfo .btn-primary.clicked {
+    background-color: rgba(155, 155, 155, 0.2); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(155, 155, 155, 0.2); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalUserInfo .modal-footer {
+    border-top: none;
+    padding: 15px 20px;
+}
+
+#modalUserInfo .modal-footer .btn-secondary {
+    background-color: rgba(243, 243, 243, 1);
+    border-color: rgba(243, 243, 243, 1);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: rgba(145, 51, 218, 1);
+    border-radius: 30px;
+    margin-right: 85px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-inline: 20px;
+}
+
+/* Centraliza o botão "Cancelar" apenas na visualização do perfil */
+#modalUserInfo .modal-footer.view-mode .btn-secondary {
+    display: block;
+    margin: 0 auto;
+}
+
+#modalUserInfo .btn-secondary:hover,
+#modalUserInfo .btn-secondary:focus,
+#modalUserInfo .btn-secondary:active,
+#modalUserInfo .btn-secondary.active,
+#modalUserInfo .btn-secondary.focus,
+#modalUserInfo .btn-secondary.clicked {
+    background-color: rgba(214, 213, 213, 1); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(214, 213, 213, 1); /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+
+#modalUserInfo .btn-success {
+    background-color: rgba(145, 51, 218, 1);; /* Cor de fundo */
+    border-color: rgba(145, 51, 218, 1);; /* Cor da borda */
+    font-family: 'Montserrat', sans-serif; /* Aplica a fonte Montserrat */
+    font-weight: 600; /* Peso da fonte SemiBold */
+    color: rgb(255, 255, 255); /* Cor do texto */
+    border-radius: 30px; /* Borda arredondada */
+    width: 26%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-inline: 20px;
+   
+
+}
+
+#modalUserInfo .btn-success:hover,
+#modalUserInfo .btn-success:focus,
+#modalUserInfo .btn-success:active,
+#modalUserInfo .btn-success.active,
+#modalUserInfo .btn-success.focus,
+#modalUserInfo .btn-success.clicked {
+    background-color: rgba(108, 26, 172, 1); /* Cor de fundo ao passar o mouse */
+    border-color: rgba(108, 26, 172, 1);; /* Cor da borda ao passar o mouse */
+    outline: none;
+    box-shadow: none;
+}
+
+#modalUserInfo .modal-footer .btn-divider {
+    margin: 0 5px; /* Margem entre os botões */
+    display: none; /* Ocultar inicialmente */
+    height: 30px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1); /* Cor da barra vertical */
+    vertical-align: middle;
 }
 
 

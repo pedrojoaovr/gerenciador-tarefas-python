@@ -116,10 +116,8 @@
             <div class="modal-header">
                 <h5 class="modal-title">Informações do Usuário</h5>
                 <div class="ml-auto">
-                    <button type="button" class="btn btn-secondary ml-2" id="btnEditUserInfo"><i class="fas fa-edit"></i> Editar</button>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                    </button>
+                    <button type="button" class="btn btn-primary" id="btnEditUserInfo"><i class="fas fa-edit"></i></button>
+                    
                 </div>
             </div>
             <!-- Body -->
@@ -140,8 +138,9 @@
                 </form>
             </div>
             <!-- Footer -->
-            <div class="modal-footer">
+            <div class="modal-footer view-mode">
                 <button type="button" class="btn btn-success" id="btnSaveUserInfo" style="display:none;">Salvar</button>
+                <span class="btn-divider" id="btnDivider" style="display:none;"></span>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
@@ -253,38 +252,72 @@
             $('#modalUserInfo').modal('show');
         });
 
-        // Habilitar campos de edição ao clicar no botão "Editar"
-        $('#btnEditUserInfo').click(function() {
-            $('#userName').prop('disabled', false);
-            $('#userUsername').prop('disabled', false);
-            $('#userPassword').prop('disabled', false);
-            $('#btnSaveUserInfo').show();
-            $(this).hide();
-        });
+       
+        $(document).ready(function() {
+            $('#btnEditUserInfo').click(function() {
+                $('#userName').prop('disabled', false);
+                $('#userUsername').prop('disabled', false);
+                $('#userPassword').prop('disabled', false);
+                $('#btnSaveUserInfo').show();
+                $('#btnDivider').show();
+                $('#btnEditUserInfo').hide();
+                $('#modalUserInfo .modal-footer').removeClass('view-mode');
+            });
 
-        $('#btnSaveUserInfo').click(function() {
-            var name = $('#userName').val();
-            var username = $('#userUsername').val();
-            var password = $('#userPassword').val();
+            $('#btnSaveUserInfo').click(function() {
+                var name = $('#userName').val();
+                var username = $('#userUsername').val();
+                var password = $('#userPassword').val();
 
-            $.ajax({
-                url: '{{ url_for("auth.update_user_info") }}',
-                type: 'POST',
-                data: {
-                    name: name,
-                    username: username,
-                    password: password
-                },
-                success: function(response) {
-                    if (response.success) {
-                        location.reload();
-                    } else {
-                        alert(response.message || 'Erro ao salvar as informações do usuário.');
+                $.ajax({
+                    url: '{{ url_for("auth.update_user_info") }}',
+                    type: 'POST',
+                    data: {
+                        name: name,
+                        username: username,
+                        password: password
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            alert(response.message || 'Erro ao salvar as informações do usuário.');
+                        }
                     }
-                }
+                });
+            });
+
+            $('#modalUserInfo').on('show.bs.modal', function (e) {
+                $('#modalUserInfo .modal-footer').addClass('view-mode');
+                $('#btnSaveUserInfo').hide();
+                $('#btnDivider').hide();
+                $('#btnEditUserInfo').show();
+                $('#userName').prop('disabled', true);
+                $('#userUsername').prop('disabled', true);
+                $('#userPassword').prop('disabled', true);
             });
         });
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const btnEditUserInfo = document.getElementById('btnEditUserInfo');
+        const btnSaveUserInfo = document.getElementById('btnSaveUserInfo');
+        const btnDivider = document.getElementById('btnDivider');
+    
+        btnEditUserInfo.addEventListener('click', () => {
+            // Alterna a visibilidade do botão "Salvar"
+            if (btnSaveUserInfo.style.display === 'none') {
+                btnSaveUserInfo.style.display = 'inline-block';
+                btnDivider.style.display = 'inline-block';
+            } else {
+                btnSaveUserInfo.style.display = 'none';
+                btnDivider.style.display = 'none';
+            }
+        });
+    });
+    </script>
+
 </body>
 </html>
